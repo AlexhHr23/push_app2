@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1077858764536",
+    "project_id": "push-app-2-98988",
+    "storage_bucket": "push-app-2-98988.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077858764536:android:bdc118adfb6151a94e5d0d",
+        "android_client_info": {
+          "package_name": "com.alexhernandez.push_app2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKlSmg9NmViKZEFnkQakGQCY2iAyjQ4tw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
