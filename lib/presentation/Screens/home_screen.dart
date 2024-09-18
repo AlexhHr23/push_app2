@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title: const Text('Permsisos'),
         actions: [
           IconButton(onPressed: (){}, 
           icon: const Icon(Icons.settings)
@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
       ),
       body:const _HomeView(),
     );
-
   }
 }
 
