@@ -24,6 +24,8 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
 
   NotificationsBloc() : super(NotificationsState()) {
     on<NotificationStatusChanged>(_notificationsStatusChanged);
+    on<NoficationsReceived>(_onPushMessageReceived);
+
 
     //Verificar estado de las notificaciones
     _initialStatusCheck();
@@ -38,16 +40,27 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     );
   }
 
+
   void _notificationsStatusChanged(
       NotificationStatusChanged event, Emitter<NotificationsState> emit) {
     emit(state.copyWith(status: event.status));
     _getFCMToken();
   }
+  
+  void _onPushMessageReceived(
+      NoficationsReceived event, Emitter<NotificationsState> emit) {
+    emit(state.copyWith(
+      notifications: [event.pushMessage, ...state.notifications]
+    ));
+  }
+
 
   void _initialStatusCheck() async {
     final settings = await messaging.getNotificationSettings();
     add(NotificationStatusChanged(settings.authorizationStatus));
   }
+
+  
 
   void _getFCMToken() async {
     if (state.status != AuthorizationStatus.authorized) return;
@@ -72,9 +85,10 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         : message.notification!.apple?.imageUrl
     );
 
-    print(notification);
+    add(NoficationsReceived(notification));
     
   }
+  
 
   void _onForegroundMessage() {
     final listener = FirebaseMessaging.onMessage.listen(_handleRemoteMessage);

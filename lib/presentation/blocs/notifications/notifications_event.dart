@@ -10,3 +10,10 @@ class NotificationStatusChanged extends NotificationsEvent {
 
   NotificationStatusChanged(this.status);
 }
+
+// TODO 2: NoficationsReceived #PushMessage
+class NoficationsReceived extends NotificationsEvent {
+  final PushMessage pushMessage;
+
+  NoficationsReceived(this.pushMessage);
+}
