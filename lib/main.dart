@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:push_app2/config/router/app_router.dart';
@@ -7,6 +8,9 @@ import 'package:push_app2/presentation/blocs/notifications/notifications_bloc.da
 void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  
   await NotificationsBloc.initializeFCM();
   
 
