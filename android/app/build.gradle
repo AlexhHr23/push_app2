@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.alexhernandez.push_app2"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -32,6 +32,15 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+
+//     compileOptions {
+//     // Flag to enable support for the new language APIs
+//     coreLibraryDesugaringEnabled true
+//     // Sets Java compatibility to Java 8
+//     sourceCompatibility JavaVersion.VERSION_1_8
+//     targetCompatibility JavaVersion.VERSION_1_8
+//   }
+
 
     buildTypes {
         release {
